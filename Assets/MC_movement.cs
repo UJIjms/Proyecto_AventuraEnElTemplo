@@ -6,7 +6,7 @@ public class MC_movement : MonoBehaviour
 {
     private Rigidbody rB;
     private Animator anim;
-    private float movementSpeed = 2f;
+    private float movementSpeed = 4f;
     private float mHor;
     private float mVer;
 
@@ -41,12 +41,12 @@ public class MC_movement : MonoBehaviour
         {
             if (run == 1)
             {
-                movementSpeed = 4;
+                movementSpeed = 8;
                 anim.SetBool("isRunning", true);
             }
             else
             {
-                movementSpeed = 2;
+                movementSpeed = 4;
                 anim.SetBool("isRunning", false);
             }
         }
