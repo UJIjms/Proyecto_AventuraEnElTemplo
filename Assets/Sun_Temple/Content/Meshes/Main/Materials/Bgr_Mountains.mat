@@ -2,13 +2,18 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Bgr_Mountains
   m_Shader: {fileID: 4800000, guid: 85fc5064ff27c344592430b93381ab08, type: 3}
-  m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF _SUNDISK_HIGH_QUALITY
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _GLOSSYREFLECTIONS_OFF
+  - _SPECULARHIGHLIGHTS_OFF
+  - _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -24,11 +29,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BlendMask:
         m_Texture: {fileID: 2800000, guid: 95ab463f0f4cdf649bfd5e2c8c0869f7, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedo:
         m_Texture: {fileID: 0}
@@ -60,7 +65,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 0cd2a1783975e7144afe728058903172, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 2}
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: 083ef582985efbf45abc912017554268, type: 3}
@@ -84,7 +89,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _TerrainNormal:
         m_Texture: {fileID: 2800000, guid: acc9f1c1a0e5a6e45af43e5ea98c90a3, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Tex:
         m_Texture: {fileID: 8900000, guid: c50cfa3778ae4aa44ac8bf00caa94fed, type: 3}
@@ -92,12 +97,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _layer1Norm:
         m_Texture: {fileID: 2800000, guid: 94974a13c4c9ae94a99f468c1f2304ca, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _layer1Tex:
         m_Texture: {fileID: 2800000, guid: 4c5207cb3f8198447a250a877fa3426b, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AtmosphereThickness: 1.92
     - _BlendInvert: 0
@@ -139,3 +145,4 @@ Material:
     - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  m_BuildTextureStacks: []
