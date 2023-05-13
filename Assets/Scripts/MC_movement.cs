@@ -77,6 +77,11 @@ public class MC_movement : MonoBehaviour
         {
             ImFalling();
         }
+
+        if (Input.GetMouseButtonDown(0)) // Verifica si se presiona el botón derecho del mouse
+        {
+            
+        }
     }
 
     public void ImFalling()

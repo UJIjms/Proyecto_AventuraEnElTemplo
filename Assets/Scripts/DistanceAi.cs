@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DistanceAi : MonoBehaviour
 {
-    public bool isNear;
+    public bool isNear = false;
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
