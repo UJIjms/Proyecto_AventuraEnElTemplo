@@ -10,9 +10,11 @@ public class MC_movement : MonoBehaviour
     private float mHor;
     private float mVer;
 
+    public bool atack; 
     public Transform characterCamera;
     public float jumpStrengh = 8f;
     public bool iCanJump;
+    public Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class MC_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        direction = transform.forward;
         float mHor = Input.GetAxis("Horizontal");
         float mVer = Input.GetAxis("Vertical");
         float run = Input.GetAxis("Fire1");
@@ -78,9 +81,15 @@ public class MC_movement : MonoBehaviour
             ImFalling();
         }
 
+        
+
         if (Input.GetMouseButtonDown(0)) // Verifica si se presiona el botón derecho del mouse
         {
-            
+            atack = true;
+        }
+        else
+        {
+            atack = false;
         }
     }
 
