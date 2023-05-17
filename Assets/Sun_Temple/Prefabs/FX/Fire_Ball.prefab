@@ -4916,6 +4916,8 @@ MonoBehaviour:
   meshAgent: {fileID: 1197315444119923276}
   mCharacter: {fileID: 0}
   isNear: {fileID: 1197315444131831384}
+  isTouching: {fileID: 4801476344642361559}
+  CharacterCode: {fileID: 0}
 --- !u!1 &1196118490081818756
 GameObject:
   m_ObjectHideFlags: 0
@@ -14576,7 +14578,7 @@ GameObject:
   - component: {fileID: 1197315444131831385}
   - component: {fileID: 1197315444131831384}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14634,6 +14636,8 @@ GameObject:
   - component: {fileID: 1197315444566034416}
   - component: {fileID: 1197315444566034413}
   - component: {fileID: 1197315444566034414}
+  - component: {fileID: 1004841329154003468}
+  - component: {fileID: 4801476344642361559}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -14706,3 +14710,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &1004841329154003468
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197315444566034417}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.000002861023, z: -0.000030517578}
+--- !u!114 &4801476344642361559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197315444566034417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f131f683cd50cb40a041117c5001480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNear: 0

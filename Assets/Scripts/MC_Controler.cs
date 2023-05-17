@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MC_movement : MonoBehaviour
+public class MC_Controler : MonoBehaviour
 {
     private Rigidbody rB;
     private Animator anim;
@@ -10,6 +10,7 @@ public class MC_movement : MonoBehaviour
     private float mHor;
     private float mVer;
 
+    public int life = 20;
     public bool atack; 
     public Transform characterCamera;
     public float jumpStrengh = 8f;
@@ -19,6 +20,7 @@ public class MC_movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.SetActive(true);
         iCanJump = false;
         rB = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -35,6 +37,11 @@ public class MC_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (life <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+
         direction = transform.forward;
         float mHor = Input.GetAxis("Horizontal");
         float mVer = Input.GetAxis("Vertical");

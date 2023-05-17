@@ -8,14 +8,17 @@ public class BasicEnemyAi : MonoBehaviour
     public NavMeshAgent meshAgent;
     public Transform mCharacter;
     public DistanceAi isNear;
-    public MC_movement CharacterCode;
+    public DistanceAi isTouching;
+    public MC_Controler CharacterCode;
 
+    private float timerInterval = 1f;
     private int life = 3;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        InvokeRepeating("DoSomething", 1f, timerInterval);
         this.gameObject.SetActive(true);
     }
 
@@ -27,6 +30,7 @@ public class BasicEnemyAi : MonoBehaviour
 
         if (isNear.isNear)
         {
+
             if (CharacterCode.atack && angulo <= 10)
             {
                 life -= 1;
@@ -40,5 +44,12 @@ public class BasicEnemyAi : MonoBehaviour
                 meshAgent.SetDestination(mCharacter.position + new Vector3(0, 2, 0));
             }
         }            
+    }
+    private void DoSomething()
+    {
+        if (isTouching.isNear)
+        {
+            CharacterCode.life -= 1;
+        }
     }
 }

@@ -9,6 +9,9 @@ public class teleport : MonoBehaviour
     Vector3 dsitance = new Vector3(5,0,5);
     private void OnTriggerEnter(Collider other)
     {
-        Player.transform.position = Target.transform.position + dsitance;
+        if (other.CompareTag("Player"))
+        {
+            Player.transform.position = Target.transform.position + dsitance;
+        }
     }
 }

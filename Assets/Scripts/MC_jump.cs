@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MC_jump : MonoBehaviour
 {
-    public MC_movement MC_Movement;
+    public MC_Controler MC_Movement;
     // Start is called before the first frame update
     void Start()
     {
