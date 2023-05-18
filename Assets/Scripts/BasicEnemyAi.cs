@@ -11,7 +11,7 @@ public class BasicEnemyAi : MonoBehaviour
     public DistanceAi isTouching;
     public MC_Controler CharacterCode;
 
-    private float timerInterval = 1f;
+    private float timerInterval = 0.05f;
     private int life = 3;
 
 
@@ -49,7 +49,7 @@ public class BasicEnemyAi : MonoBehaviour
     {
         if (isTouching.isNear)
         {
-            CharacterCode.life -= 1;
+            CharacterCode.life -= 0.1F;
         }
     }
 }

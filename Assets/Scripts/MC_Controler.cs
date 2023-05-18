@@ -10,7 +10,7 @@ public class MC_Controler : MonoBehaviour
     private float mHor;
     private float mVer;
 
-    public int life = 20;
+    public float life = 20F;
     public bool atack; 
     public Transform characterCamera;
     public float jumpStrengh = 8f;
