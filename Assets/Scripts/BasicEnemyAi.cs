@@ -12,7 +12,7 @@ public class BasicEnemyAi : MonoBehaviour
     public MC_Controler CharacterCode;
 
     private float timerInterval = 0.05f;
-    private int life = 3;
+    public float life = 4F;
 
 
     // Start is called before the first frame update
