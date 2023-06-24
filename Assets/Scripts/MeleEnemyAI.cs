@@ -9,6 +9,7 @@ public class MeleEnemyAI : MonoBehaviour
     private Quaternion angle;
     public float grade;
     private Animator ani;
+    private bool attack;
 
     public GameObject target;
     
@@ -27,7 +28,9 @@ public class MeleEnemyAI : MonoBehaviour
 
     private void Enemy_Behavior()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) > 10) {
+        if (Vector3.Distance(transform.position, target.transform.position) > 20) {
+
+            ani.SetBool("run", false);
             corono += 1 * Time.deltaTime;
             if (corono >= 4)
             {
@@ -53,5 +56,34 @@ public class MeleEnemyAI : MonoBehaviour
                     break;
             }
         }
+        else
+        {
+            if (Vector3.Distance(transform.position, target.transform.position) > 1 && !attack)
+            {
+                var lookPos = target.transform.position - transform.position;
+                lookPos.y = 0;
+                var rotation = Quaternion.LookRotation(lookPos);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 6);
+                ani.SetBool("walk", false);
+
+                ani.SetBool("run", true);
+                transform.Translate(Vector3.forward * 9 * Time.deltaTime);
+
+                ani.SetBool("attack", false);
+            }
+            else
+            {
+                ani.SetBool("walk", false);
+                ani.SetBool("run", false);
+
+                ani.SetBool("attack", true);
+                attack = true;
+            }
+        }
+    }
+    private void End_Ani()
+    {
+        ani.SetBool("attack", true);
+        attack = false;
     }
 }
