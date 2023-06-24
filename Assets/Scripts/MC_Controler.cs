@@ -43,8 +43,8 @@ public class MC_Controler : MonoBehaviour
         }
 
         direction = transform.forward;
-        float mHor = Input.GetAxis("Horizontal");
-        float mVer = Input.GetAxis("Vertical");
+        mHor = Input.GetAxis("Horizontal");
+        mVer = Input.GetAxis("Vertical");
         float run = Input.GetAxis("Fire1");
 
         if (mHor != 0 || mVer != 0)
@@ -79,7 +79,7 @@ public class MC_Controler : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 anim.SetBool("isJumping", true);
-                rB.AddForce(new Vector3(0,jumpStrengh,0),ForceMode.Impulse);
+                rB.AddForce(new Vector3(0, jumpStrengh, 0), ForceMode.Impulse);
             }
             anim.SetBool("inFloor", true);
         }
@@ -87,8 +87,6 @@ public class MC_Controler : MonoBehaviour
         {
             ImFalling();
         }
-
-        
 
         if (Input.GetMouseButtonDown(0)) // Verifica si se presiona el botón derecho del mouse
         {
