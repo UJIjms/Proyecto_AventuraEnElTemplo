@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MeleEnemyAI : MonoBehaviour
 {
@@ -12,7 +13,12 @@ public class MeleEnemyAI : MonoBehaviour
     private bool attack;
 
     public GameObject target;
-    
+
+    public GameObject slider;
+    public int life = 20;
+
+    private int numericValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +30,7 @@ public class MeleEnemyAI : MonoBehaviour
     void Update()
     {
         Enemy_Behavior();
+        RotateCanva();
     }
 
     private void Enemy_Behavior()
@@ -87,5 +94,27 @@ public class MeleEnemyAI : MonoBehaviour
     {
         ani.SetBool("attack", false);
         attack = false;
+    }
+
+    private void RotateCanva()
+    {
+        slider.GetComponent<Slider>().value = life;
+        var lookPos = target.transform.position - transform.position;
+        var rotationCanva = Quaternion.LookRotation(lookPos);
+        slider.transform.rotation = rotationCanva;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("MCweapon"))
+        {
+            life -= 2;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("MCweapon"))
+        {
+            life -= 5;
+        }
     }
 }

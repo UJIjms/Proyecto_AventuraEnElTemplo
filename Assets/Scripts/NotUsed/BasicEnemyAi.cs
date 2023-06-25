@@ -31,18 +31,18 @@ public class BasicEnemyAi : MonoBehaviour
         if (isNear.isNear)
         {
 
-            if (CharacterCode.atack && angulo <= 10)
-            {
-                life -= 1;
-                if(life == 0)
-                {
-                    this.gameObject.SetActive(false);
-                }                
-            }
-            else
-            {
-                meshAgent.SetDestination(mCharacter.position + new Vector3(0, 2, 0));
-            }
+            //if (CharacterCode.atack && angulo <= 10)
+            //{
+            //    life -= 1;
+            //    if(life == 0)
+            //    {
+            //        this.gameObject.SetActive(false);
+            //    }                
+            //}
+            //else
+            //{
+            //    meshAgent.SetDestination(mCharacter.position + new Vector3(0, 2, 0));
+            //}
         }            
     }
     private void DoSomething()

@@ -11,11 +11,11 @@ public class MC_Controler : MonoBehaviour
     private float mVer;
 
     public float life = 20F;
-    public bool atack; 
     public Transform characterCamera;
     public float jumpStrengh = 8f;
     public bool iCanJump;
     public Vector3 direction;
+    public GameObject hand;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class MC_Controler : MonoBehaviour
         iCanJump = false;
         rB = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        hand.gameObject.SetActive(false);
     }
 
     void FixedUpdate()
@@ -88,13 +89,17 @@ public class MC_Controler : MonoBehaviour
             ImFalling();
         }
 
-        if (Input.GetMouseButtonDown(0)) // Verifica si se presiona el botón derecho del mouse
+        if (Input.GetMouseButtonDown(0))
         {
-            atack = true;
+            anim.SetTrigger("Kik");
+            hand.gameObject.SetActive(true);
+            Invoke("DeactivateObject", 0.5F);
+
         }
-        else
+
+        if (Input.GetMouseButtonDown(1))
         {
-            atack = false;
+            anim.SetTrigger("Throw");
         }
     }
 
@@ -117,5 +122,10 @@ public class MC_Controler : MonoBehaviour
         {
             life -= 3;
         }
+    }
+
+    private void DeactivateObject()
+    {
+        hand.SetActive(false);
     }
 }

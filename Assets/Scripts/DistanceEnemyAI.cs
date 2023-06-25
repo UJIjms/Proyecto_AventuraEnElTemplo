@@ -14,6 +14,7 @@ public class DistanceEnemyAI : MonoBehaviour
     public Transform spawnBulletPoint;
     public float bulletVelocity = 100F;
     public GameObject target;
+    public float life = 10F;
 
     private Transform targetPos;    
 
