@@ -10,12 +10,18 @@ public class DistanceEnemyAI : MonoBehaviour
     public float grade;
     private Animator ani;
 
+    public GameObject enemyBullet;
+    public Transform spawnBulletPoint;
+    public float bulletVelocity = 100F;
     public GameObject target;
+
+    private Transform targetPos;    
 
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("ManiCharacter");
+        targetPos = GameObject.Find("ManiCharacter").transform;
         ani = GetComponent<Animator>();
     }
 
@@ -68,7 +74,7 @@ public class DistanceEnemyAI : MonoBehaviour
                 ani.SetBool("walk", false);
 
                 ani.SetBool("run", true);
-                transform.Translate(Vector3.forward * 9 * Time.deltaTime);
+                transform.Translate(Vector3.forward * 5 * Time.deltaTime);
 
                 ani.SetBool("throw", false);
             }
@@ -92,4 +98,18 @@ public class DistanceEnemyAI : MonoBehaviour
             }
         }
     }
+    void Shoot()
+    {
+        Vector3 targetDirection = targetPos.position - transform.position;
+        Vector3 adjust = new Vector3(-1f, 0f, 0f);
+        targetDirection += adjust;
+        GameObject newBullet;
+        newBullet = Instantiate(enemyBullet, spawnBulletPoint.position, spawnBulletPoint.rotation);
+
+        Quaternion initialRotation = newBullet.transform.rotation;
+        newBullet.transform.rotation = initialRotation * Quaternion.Euler(90f, 0f, 0f);
+
+        newBullet.GetComponent<Rigidbody>().AddForce(targetDirection * bulletVelocity, ForceMode.Force);
+    }
+
 }

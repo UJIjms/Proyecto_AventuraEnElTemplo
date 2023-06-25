@@ -108,6 +108,13 @@ public class MC_Controler : MonoBehaviour
     {
         if (other.CompareTag("weapon"))
         {
+            life -= 5;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("weapon"))
+        {
             life -= 3;
         }
     }
