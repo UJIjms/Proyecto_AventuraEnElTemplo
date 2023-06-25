@@ -103,4 +103,12 @@ public class MC_Controler : MonoBehaviour
         anim.SetBool("inFloor", false);
         anim.SetBool("isJumping", false);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("weapon"))
+        {
+            life -= 3;
+        }
+    }
 }
