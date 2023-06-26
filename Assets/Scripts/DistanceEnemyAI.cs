@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DistanceEnemyAI : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class DistanceEnemyAI : MonoBehaviour
     public Transform spawnBulletPoint;
     public float bulletVelocity = 100F;
     public GameObject target;
-    public float life = 10F;
+
+    public GameObject slider;
+    public int life = 10;
 
     private Transform targetPos;    
 
@@ -29,7 +32,9 @@ public class DistanceEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (life <= 0) this.gameObject.SetActive(false);
         Enemy_Behavior();
+        RotateCanva();
     }
 
     private void Enemy_Behavior()
@@ -112,5 +117,25 @@ public class DistanceEnemyAI : MonoBehaviour
 
         newBullet.GetComponent<Rigidbody>().AddForce(targetDirection * bulletVelocity, ForceMode.Force);
     }
-
+    private void RotateCanva()
+    {
+        slider.GetComponent<Slider>().value = life;
+        var lookPos = target.transform.position - transform.position;
+        var rotationCanva = Quaternion.LookRotation(lookPos);
+        slider.transform.rotation = rotationCanva;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("MCweapon"))
+        {
+            life -= 2;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("MCweapon"))
+        {
+            life -= 5;
+        }
+    }
 }

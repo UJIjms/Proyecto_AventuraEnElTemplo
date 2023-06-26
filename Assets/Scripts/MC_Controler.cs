@@ -17,6 +17,10 @@ public class MC_Controler : MonoBehaviour
     public Vector3 direction;
     public GameObject hand;
 
+    public GameObject Arrow;
+    public Transform spawnArrowPoint;
+    public float arrowVelocity = 100F;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,5 +131,15 @@ public class MC_Controler : MonoBehaviour
     private void DeactivateObject()
     {
         hand.SetActive(false);
+    }
+
+    void Shoot()
+    {
+        Vector3 adjust = new Vector3(0f, 0f, 0f);
+        GameObject newBullet = Instantiate(Arrow, spawnArrowPoint.position, spawnArrowPoint.rotation);
+        Rigidbody bulletRigidbody = newBullet.GetComponent<Rigidbody>();
+
+        Vector3 shootDirection = characterCamera.forward + adjust;
+        bulletRigidbody.AddForce(shootDirection * arrowVelocity, ForceMode.Impulse);
     }
 }
