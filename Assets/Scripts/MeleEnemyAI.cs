@@ -36,7 +36,7 @@ public class MeleEnemyAI : MonoBehaviour
 
     private void Enemy_Behavior()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) > 20) {
+        if (Vector3.Distance(transform.position, target.transform.position) > 20 && life == 20) {
             End_Ani();
 
             ani.SetBool("run", false);
