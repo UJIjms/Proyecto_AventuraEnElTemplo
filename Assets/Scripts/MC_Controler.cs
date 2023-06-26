@@ -135,11 +135,11 @@ public class MC_Controler : MonoBehaviour
 
     void Shoot()
     {
-        Vector3 adjust = new Vector3(0f, 0f, 0f);
         GameObject newBullet = Instantiate(Arrow, spawnArrowPoint.position, spawnArrowPoint.rotation);
         Rigidbody bulletRigidbody = newBullet.GetComponent<Rigidbody>();
-
-        Vector3 shootDirection = characterCamera.forward + adjust;
+        Quaternion initialRotation = newBullet.transform.rotation;
+        newBullet.transform.rotation = initialRotation * Quaternion.Euler(90f, 0f, 0f); 
+        Vector3 shootDirection = characterCamera.forward;
         bulletRigidbody.AddForce(shootDirection * arrowVelocity, ForceMode.Impulse);
     }
 }
