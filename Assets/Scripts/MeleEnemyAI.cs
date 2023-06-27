@@ -29,7 +29,12 @@ public class MeleEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (life <= 0) this.gameObject.SetActive(false);
+        if (life <= 0)
+        {
+            MC_Controler myScript = target.GetComponent<MC_Controler>();
+            myScript.points += 20;
+            this.gameObject.SetActive(false);
+        }
         Enemy_Behavior();
         RotateCanva();
     }

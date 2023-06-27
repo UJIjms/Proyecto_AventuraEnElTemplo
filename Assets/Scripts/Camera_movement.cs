@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camara_movement : MonoBehaviour
+public class Camera_movement : MonoBehaviour
 {
     private Vector2 angle = new Vector2(180 * Mathf.Deg2Rad, 0 * Mathf.Deg2Rad);
 
     public Transform follow;
-    public float distance;
+    public float maxDistance = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,8 @@ public class Camara_movement : MonoBehaviour
             Mathf.Sin(angle.x) * Mathf.Cos(angle.y),
             -Mathf.Sin(angle.y),
             Mathf.Cos(angle.x) * Mathf.Cos(angle.y));
+
+        float distance = maxDistance;
 
         transform.position = follow.position + orbit * distance;
         transform.rotation = Quaternion.LookRotation(follow.position - transform.position);

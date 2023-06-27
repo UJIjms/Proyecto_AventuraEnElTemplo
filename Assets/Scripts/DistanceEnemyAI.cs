@@ -13,7 +13,7 @@ public class DistanceEnemyAI : MonoBehaviour
 
     public GameObject enemyBullet;
     public Transform spawnBulletPoint;
-    public float bulletVelocity = 100F;
+    public float bulletVelocity = 50F;
     public GameObject target;
 
     public GameObject slider;
@@ -32,14 +32,18 @@ public class DistanceEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (life <= 0) this.gameObject.SetActive(false);
+        if (life <= 0) {
+            MC_Controler myScript = target.GetComponent<MC_Controler>();
+            myScript.points += 10; 
+            this.gameObject.SetActive(false); 
+        }
         Enemy_Behavior();
         RotateCanva();
     }
 
     private void Enemy_Behavior()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) > 25)
+        if (Vector3.Distance(transform.position, target.transform.position) > 25 && life == 10)
         {
             ani.SetBool("throw", false);
 

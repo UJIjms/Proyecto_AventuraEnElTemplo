@@ -11,4 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mountain.unity
     guid: bea88d24722574e419ee0cf43b898752
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0a32231245afdd448bc8dd573c0c08dc, type: 2}

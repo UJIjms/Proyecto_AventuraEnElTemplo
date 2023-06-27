@@ -178,7 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b61791a9aabc6c4695458fb6f54f0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderLife: {fileID: 0}
   life: 20
+  sliderStamina: {fileID: 0}
+  stamina: 20
   characterCamera: {fileID: 0}
   jumpStrengh: 600
   iCanJump: 0
